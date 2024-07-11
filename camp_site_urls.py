@@ -31,6 +31,7 @@ def scrape_urls():
         time.sleep(sleep_time)
 
     df = pd.DataFrame(camp_sites) 
+    df.index.name = 'ID'
     df.to_csv(output_file)
 
 if __name__ == "__main__":

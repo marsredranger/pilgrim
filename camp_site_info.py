@@ -33,10 +33,10 @@ if __name__ == '__main__':
 
     CAMP_SITE_CSV_PATH = './camp_site_urls.csv'
     CAMP_SITE_INFO_CSV_PATH = './camp_site_info.csv'
-
+    SLEEP_TIME = 5
+    
     df = pd.read_csv(CAMP_SITE_CSV_PATH)
     df = df.loc[batch_start:batch_end-1]
-    sleep_time = 5
 
     for i in range(batch_start, batch_end):
         url = df.loc[i, 'URL']
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         latitude, longitude = scrape_lat_long(html)
         df.loc[i, 'LATITUDE'] = latitude
         df.loc[i, 'LONGITUDE'] = longitude
-        time.sleep(sleep_time)
+        time.sleep(SLEEP_TIME)
 
     write_header = False if os.path.exists(CAMP_SITE_INFO_CSV_PATH) else True
     df.to_csv(CAMP_SITE_INFO_CSV_PATH, mode='a', index=False, header=write_header)
