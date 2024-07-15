@@ -46,7 +46,7 @@ if __name__=='__main__':
 
     df=pd.read_csv(CAMP_SITE_URLS_PATH+CAMP_SITE_URLS_FILENAME)
     if batch_end > df.shape[0] + 1:
-        raise SystemExit(f"batch end: {batch_end} is greater than {df.shape[0] + 1}.")
+        raise SystemExit(f"batch end: {batch_end} is greater than maximum batch end: {df.shape[0]}.")
     df=df.loc[batch_start:batch_end-1]
     for i in range(batch_start, batch_end):
         url=df.loc[i, 'URL']
