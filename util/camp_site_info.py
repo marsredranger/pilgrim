@@ -32,9 +32,9 @@ def fetch_camp_site_content(url):
 
 
 if __name__=='__main__':
-    CAMP_SITE_URLS_PATH=f"data/camp_site_urls/{create_date_str_path()}"
+    CAMP_SITE_URLS_PATH=f"../data/camp_site_urls/{create_date_str_path()}"
     CAMP_SITE_URLS_FILENAME='camp_site_urls.csv'
-    CAMP_SITE_INFO_PATH=f"data/camp_site_info/{create_date_str_path()}"
+    CAMP_SITE_INFO_PATH=f"../data/camp_site_info/{create_date_str_path()}"
     CAMP_SITE_INFO_FILENAME='camp_site_info.csv'
     SLEEP_TIME=2
 

@@ -50,7 +50,7 @@ if __name__ == "__main__":
         "?field_rec_activities_target_id=11905&" +\
         "field_rec_forest_target_id=All&page="
     HEADERS = {'User-Agent': 'Camping Tripper/0.0.1'}
-    OUTPUT_PATH = "data/camp_site_urls/"
+    OUTPUT_PATH = "../data/camp_site_urls/"
     OUTPUT_FILE = "camp_site_urls.csv"
     STARTING_PAGE = 0
     SLEEP_TIME = 5
