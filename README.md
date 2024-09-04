@@ -62,6 +62,19 @@ And, the next 100 links would be:
 Using https://leafletjs.com/ to create map on a webpage.
 look into Routing Machine Plugin for creating routes between 2 locations.
 
+## Front-end
+
+Steps to build and run front-end:
+```
+npm install
+```
+
+```
+npm run build
+```
+
+Open localhost:9000 in web browser
+
 
 ## Useful Links
 Recration.gov API: https://ridb.recreation.gov/docs
