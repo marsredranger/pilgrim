@@ -26,15 +26,17 @@ def scrape_lat_long(html):
 
 
 def fetch_camp_site_content(url):
-    headers={'User-Agent': 'Pilgrim/0.0.1'}
-    response=requests.get(url, headers=headers)
+#    headers={'User-Agent': 'Pilgrim/0.0.1'}
+#    headers={'User-Agent': 'Pilgrim/0.0.2'}
+    headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0'}
+    response=requests.get(url, headers=headers, timeout=10)
     return response.content
 
 
 if __name__=='__main__':
-    CAMP_SITE_URLS_PATH=f"../data/camp_site_urls/{create_date_str_path()}"
+    CAMP_SITE_URLS_PATH=f"data/camp_site_urls/{create_date_str_path()}"
     CAMP_SITE_URLS_FILENAME='camp_site_urls.csv'
-    CAMP_SITE_INFO_PATH=f"../data/camp_site_info/{create_date_str_path()}"
+    CAMP_SITE_INFO_PATH=f"data/camp_site_info/{create_date_str_path()}"
     CAMP_SITE_INFO_FILENAME='camp_site_info.csv'
     SLEEP_TIME=2
 

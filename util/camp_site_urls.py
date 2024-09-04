@@ -12,12 +12,17 @@ def create_date_str_path():
 
 
 def scrape_ending_page():
+    print("Getting ending page...")
     url = BASE_URL+str(STARTING_PAGE)
-    attrs = {'aria-label': 'Last pate'}
+    attrs = {'aria-label': 'Last page'}
+    print(f"Sending GET request to {url}")
+    print(f"HEADERS={HEADERS}")
     response = requests.get(url, headers=HEADERS)
+    print(f'Status code: {response.status_code}')
     soup = BeautifulSoup(response.content, 'html.parser')
     ending_page_element = soup.find_all(attrs=attrs)
     ending_page_url = ending_page_element[0]['href']
+    print("Ending page url: " + ending_page_url)
     parsed_ending_page_url = urlparse(ending_page_url)
     ending_page = int(parse_qs(parsed_ending_page_url.query)['page'][0])
     return ending_page
@@ -49,8 +54,9 @@ if __name__ == "__main__":
     BASE_URL = "https://www.fs.usda.gov/visit/destinations" +\
         "?field_rec_activities_target_id=11905&" +\
         "field_rec_forest_target_id=All&page="
-    HEADERS = {'User-Agent': 'Camping Tripper/0.0.1'}
-    OUTPUT_PATH = "../data/camp_site_urls/"
+    # HEADERS = {'User-Agent': 'Pilgrim/0.0.1'}
+    HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0'}
+    OUTPUT_PATH = "data/camp_site_urls/"
     OUTPUT_FILE = "camp_site_urls.csv"
     STARTING_PAGE = 0
     SLEEP_TIME = 5
