@@ -14,11 +14,16 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
       },
+      {
+        test: /\.png$/i,
+        type: 'asset/resource'
+      }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      favicon: 'src/pilgrim-logo.ico'
     })
   ],
   devServer: {
